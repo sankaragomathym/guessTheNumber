@@ -1,0 +1,27 @@
+{
+    "name": "Guess The Number",
+    "short_name": "GuessTheNumber",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#2D2E39",
+    "theme_color": "#743ad5", 
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/icons/icon-192x192.png",
+            "type": "image/png", 
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "type": "image/png", 
+            "sizes": "512x512"
+        },
+        {
+            "src": "/icons/maskable-icon.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "maskable"
+        }
+    ]
+}

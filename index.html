@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Guess the Number | Game</title>
+
+	<meta name="theme-color" content="#743ad5">
+  	<meta name="apple-mobile-web-app-status-bar" content="#743ad5">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+	<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+	<link rel="manifest" href="manifest.json" />
+	<link rel="stylesheet" type="text/css" href="game.css" />
+
+</head>
+
+<body class="dark">
+
+<main>
+	<div class="container home">
+		
+		<header>
+			<div class="left-icon">
+				<button onclick="goHome();" title="home">
+					<i class="home-icon">
+						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path></svg>
+					</i>
+				</button>
+			</div>
+			<div class="right-icon">
+				<button onclick="showHelp();" title="help">
+					<i class="help-icon">	
+						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="question" class="svg-inline--fa fa-question fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M202.021 0C122.202 0 70.503 32.703 29.914 91.026c-7.363 10.58-5.093 25.086 5.178 32.874l43.138 32.709c10.373 7.865 25.132 6.026 33.253-4.148 25.049-31.381 43.63-49.449 82.757-49.449 30.764 0 68.816 19.799 68.816 49.631 0 22.552-18.617 34.134-48.993 51.164-35.423 19.86-82.299 44.576-82.299 106.405V320c0 13.255 10.745 24 24 24h72.471c13.255 0 24-10.745 24-24v-5.773c0-42.86 125.268-44.645 125.268-160.627C377.504 66.256 286.902 0 202.021 0zM192 373.459c-38.196 0-69.271 31.075-69.271 69.271 0 38.195 31.075 69.27 69.271 69.27s69.271-31.075 69.271-69.271-31.075-69.27-69.271-69.27z"></path></svg>
+					</i>
+				</button>
+				<button onclick="showStats();" title="statistics">
+					<i class="stats-icon">	
+						<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chart-line" class="svg-inline--fa fa-chart-line fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM464 96H345.94c-21.38 0-32.09 25.85-16.97 40.97l32.4 32.4L288 242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25 0l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L192 237.25l73.37 73.37c12.5 12.5 32.76 12.5 45.25 0l96-96 32.4 32.4c15.12 15.12 40.97 4.41 40.97-16.97V112c.01-8.84-7.15-16-15.99-16z"></path></svg>
+					</i>
+				</button>
+			</div>
+		</header>
+
+
+		<section>			
+			
+				<div class="home-cont">
+					<h1>Guess the Number</h1>
+
+					<div class="levels-cont">
+						<button id="continueBtn" onclick="continueGame()" class="hide" title="continue">Continue</button>
+						<button onclick="selectLevel(0);" title="beginner">BEGINNER</button>
+						<button onclick="selectLevel(1);" title="intermediate">INTERMEDIATE</button>
+						<button onclick="selectLevel(2);" title="expert">EXPERT</button>
+					</div>
+
+					<ul>
+						<li>
+							<span>Time Mode: </span>
+							<label for="timeModeSwitcher" class="toggle-cont">
+								<input type="checkbox" name="timer" id="timeModeSwitcher" onclick="switchTimeMode(this);" title="time mode switcher">
+								<span class="slider"></span>
+							</label>
+						</li>
+
+						<li>
+							<span>Dark Theme: </span>
+							<label for="themeSwitcher" class="toggle-cont">
+								<input type="checkbox" name="theme" id="themeSwitcher" onchange="switchTheme();" title="theme switcher">
+								<span class="slider"></span>
+							</label>
+						</li>
+					</ul>
+				</div>
+
+
+				<div class="help-cont">
+
+					<h1>Help</h1>
+
+					<p>The aim of the game is to find a <b>4-digit number</b> in least possible guesses. The number consists of <b>4 distinct digits</b> which starts with a <b>non-zero</b>.
+					<br><br>
+					For each guess made, a corresponding <b>hint</b> will be given which will help in making subsequent guesses.
+					<br><br>
+					Each digit which is <b>present</b> in the number with <b>correct position</b>, will be represented by <b>"+"</b> followed by its count.
+					<br><br>
+					Each digit which is <b>present</b> in the number but with <b>incorrect position</b>, will be represented by <b>"-"</b> followed by its count.
+					<br><br>
+					For example, if the 4-digit number is <b>5263</b> and if the guess made is <b>1234</b>, then the hint will be <b>"+1 -1"</b>. "+1" is for 2 which is a correct digit in correct position. "-1" is for 3 which is a correct digit in incorrect position.
+					<br><br>
+					If the guess is <b>5234</b>, then the hint will be <b>"+2 -1"</b> as 5 and 2 are in correct positions and 3 is in incorrect position.
+					<br><br>
+					If the guess does not contain any digits present in the number (say <b>7890</b>), then the hint will be <b>"0"</b>.</p>
+					<br>
+					<ul>
+						<li><span><b>Number: 5263</b></span> <span><b>Hints</b></span></li>
+						<li><span>Guess 1: 1234</span> <span>+1 -1</span></li>
+						<li><span>Guess 2: 5234</span> <span>+2 -1</span></li>
+						<li><span>Guess 3: 7890</span> <span>0</span></li>
+					</ul>
+
+					<br>
+					<h4>Levels</h4>
+					<p>The game can be played in 3 different levels with varying maximum guesses. The game ends when the maximum number reaches. 
+						<br><br>
+						Each level can be played with or without timer.
+					</p>
+					<ul>
+						<li><span><b>Level</b></span> <span><b>Maximum Guess</b></span></li>
+						<li><span>Beginner</span> <span>14</span></li>
+						<li><span>Intermediate</span> <span>11</span></li>
+						<li><span>Expert</span> <span>08</span></li>
+					</ul>
+
+					<div class="attribution">Icons by <a href="https://fontawesome.com/license" target="_blank" rel="noreferrer noopener">fontawesome.com</a></div>
+				</div>
+
+
+				<div class="stats-cont">
+
+					<h1>Statistics</h1>
+
+					<h4>Games</h4>
+					<ul>
+						<li><span>Games Played: </span><span id="gameCount"></span></li>
+						<li><span>Games Won: </span><span id="winCount"></span></li>
+						<li><span>Win Rate: </span><span id="winRate"></span></li>
+					</ul>
+
+					<h4>Personal Best</h4>
+					<ul>
+						<li><span>Best Guess: </span><span id="bestGuessStats"></span></li>
+						<li><span>Best Time: </span><span id="bestTimeStats"></span></li>
+					</ul>
+
+				</div>
+
+
+				<div class="game-cont">
+
+					<div class="hint-cont">
+						<div class="game-info">
+							<div>
+								<span id="gameLevel"></span> 
+								<span><button id="answerBtn" title="answer">Answer</button></span>
+							</div>
+
+							<div>
+								<span id="totalGuesses"></span>
+
+								<label id="playPauseBtn">
+									<input type="checkbox" onchange="pauseGame();" title="play pause">
+									<i class="pause-icon">
+										<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pause" class="svg-inline--fa fa-pause fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"></path></svg>
+									</i>
+									<i class="play-icon hide">
+										<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg>
+									</i>
+								</label>
+
+								<div class="timer-cont">
+									<i class="clock-icon">
+										<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" class="svg-inline--fa fa-clock fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg>
+									</i>
+									<span id="timer">00:00</span>
+								</div>
+							</div>
+						</div>
+
+						<ol></ol>
+
+						<div id="gamePaused" class="hide">Game Paused</div>
+					</div>
+
+					<div class="result-cont hide">
+						<div class="result-text"></div>
+	
+						<div class="answer-cont"><span>Answer: </span> <span id="answer"></span></div>
+	
+						<div>
+							<ul>
+								<li><span>Guesses You Made</span><span id="totalUserGuesses"></span></li>
+								<li><span>Best Guess</span><span id="bestGuess"></span></li>
+							</ul>
+							<ul>
+								<li class="time-info"><span>Time Taken</span><span id="timeTaken"></span></li>
+								<li class="time-info"><span>Best Time</span><span id="bestTime"></span></li>
+							</ul>
+						</div>
+
+						<button class="blue-button" onclick="goHome();" title="new game">New Game</button>
+					</div>
+
+					<div class="user-input">
+						<span>Your Guess: </span>
+						<input id="guessInput" type="text" name="guess" title="guess" maxlength="4" autocomplete="off" autofocus>
+						<button id="goButton" class="blue-button" onclick="checkAnswer()" title="submit guess">GO</button>
+					</div>	
+
+				</div>
+
+		</section>
+	</div>
+</main>
+
+<div class="overlay hide">
+	<i class="play-icon">
+		<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="play" class="svg-inline--fa fa-play fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg>
+	</i>
+</div>
+
+
+<script src="game.js"></script>
+
+</body>
+</html>
