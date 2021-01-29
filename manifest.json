@@ -1,6 +1,6 @@
 {
     "name": "Guess The Number",
-    "short_name": "GuessTheNumber",
+    "short_name": "Guess Game",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#2D2E39",
