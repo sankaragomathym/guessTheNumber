@@ -344,6 +344,8 @@ function showResult(isWin) {
 		playPauseBtn.style.display = "none";
 	}
 	answerBtn.style.display = "none";
+	
+	window.scrollTo(0, resultCont.offsetTop);
 
 	updateStats();
 	localStorage.setItem("user", JSON.stringify(user));
