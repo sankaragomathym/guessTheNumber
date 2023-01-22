@@ -234,17 +234,8 @@ section > div {
 	padding-bottom: 40px;
 }
 
-.dark .help-cont {
-	background-color: #aaaaaa;
-	color: #000000;
-}
-
 .help .help-cont {
 	display: flex;
-}
-
-.dark .help-cont ul {
-	background-color: #aaaaaa;
 }
 
 .attribution {
